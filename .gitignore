@@ -1,0 +1,30 @@
+# Rust
+/target/
+**/target/
+*.pdb
+
+# Windows packaging/signing artifacts
+*.msix
+*.msixbundle
+*.appx
+*.appxbundle
+*.appxsym
+*.cer
+*.pfx
+*.pvk
+AppxManifest.xml.bak
+BundleArtifacts/
+AppPackages/
+
+# Editor / OS
+.vs/
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+.DS_Store
+
+# Env / local config
+.env
+.env.local
+*.local.toml

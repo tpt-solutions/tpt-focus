@@ -1,0 +1,7 @@
+Unified Notification & Focus Center (tpt-focus)
+The Problem: Notifications are chaotic across all platforms. Apps spam users, and OS-level "Focus" modes are usually too blunt (blocking everything or nothing).
+The TPT Solution: A granular, rule-based notification manager that batches alerts, mutes specific apps based on context (e.g., "mute Slack when my IDE is fullscreen"), and provides a searchable history.
+
+Compatible on Windows, Linux and Archon. https://github.com/tpt-solutions/tpt-archon
+
+🐧 Linux & Archon Compatibility: Aggregates the freedesktop.org D-Bus notification standard on Linux into a single, actionable history center. On Archon, notifications are passed via secure tpt-archon-bridge IPC. tpt-focus acts as the single, capability-gated "Notification Sink." Apps physically cannot bypass it or spam the screen; they must submit to the focus manager, which enforces user-defined rules natively at the kernel IPC level.
