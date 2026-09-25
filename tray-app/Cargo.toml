@@ -1,0 +1,44 @@
+[package]
+name = "tpt-focus-tray"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+description = "Tray icon and popup UI for tpt-focus, shared across Windows and Linux."
+publish.workspace = true
+
+[[bin]]
+name = "tpt-focus-tray"
+path = "src/main.rs"
+
+[dependencies]
+clap.workspace = true
+tpt-focus-core.workspace = true
+anyhow.workspace = true
+chrono.workspace = true
+dirs.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+
+egui = "0.31"
+eframe = { version = "0.31", default-features = false, features = [
+    "glow",
+    "wayland",
+    "x11",
+] }
+
+[target.'cfg(windows)'.dependencies]
+windows = { version = "0.62", features = [
+    "Win32_Foundation",
+    "Win32_Graphics_Gdi",
+    "Win32_UI_Input_KeyboardAndMouse",
+    "Win32_UI_Shell",
+    "Win32_UI_WindowsAndMessaging",
+    "Win32_System_LibraryLoader",
+] }
+
+[target.'cfg(target_os = "linux")'.dependencies]
+ksni = { version = "0.3", default-features = false, features = ["async-io", "blocking"] }

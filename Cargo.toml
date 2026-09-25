@@ -1,0 +1,37 @@
+[workspace]
+resolver = "3"
+members = ["core", "cli", "tray-app"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.85.0"
+license = "MIT OR Apache-2.0"
+authors = ["TPT Solutions"]
+repository = "https://github.com/tpt-solutions/tpt-focus"
+homepage = "https://github.com/tpt-solutions/tpt-focus"
+readme = "README.md"
+keywords = ["notifications", "focus", "dnd", "productivity"]
+categories = ["gui", "os"]
+publish = false
+
+[workspace.dependencies]
+tpt-focus-core = { path = "core" }
+
+anyhow = "1"
+chrono = { version = "0.4", features = ["serde"] }
+clap = { version = "4", features = ["derive"] }
+dirs = "6"
+rusqlite = { version = "0.40", features = ["bundled"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+toml = "0.8"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+uuid = { version = "1", features = ["v4", "serde"] }
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = "symbols"

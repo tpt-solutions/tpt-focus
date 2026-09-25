@@ -1,0 +1,27 @@
+<application>
+  <id type="desktop">tpt-focus</id>
+  <metadata_license>MIT</metadata_license>
+  <project_license>MIT OR Apache-2.0</project_license>
+  <name>tpt-focus</name>
+  <summary>Unified notification &amp; focus center</summary>
+  <description>
+    <p>
+      tpt-focus is a rule-based notification manager: it evaluates every
+      notification against your conditions (app, fullscreen state, active
+      focus profile, time window, urgency) and allows, mutes or batches it.
+      Everything is recorded into a searchable local history.
+    </p>
+    <p>
+      On Linux it becomes the org.freedesktop.Notifications daemon; on
+      Windows it reads toasts through the UserNotificationListener API.
+    </p>
+  </description>
+  <launchable type="desktop-id">tpt-focus.desktop</launchable>
+  <provides>
+    <service>org.freedesktop.Notifications</service>
+  </provides>
+  <categories>
+    <category>Utility</category>
+    <category>DesktopSettings</category>
+  </categories>
+</application>

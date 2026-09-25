@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=tpt-focus
+GenericName=Notification Center
+Comment=Rule-based notification manager with searchable history
+Exec=tpt-focus-tray
+Icon=tpt-focus
+Terminal=false
+Categories=Utility;DesktopSettings;
+X-GNOME-Autostart-enabled=true
+NoDisplay=true

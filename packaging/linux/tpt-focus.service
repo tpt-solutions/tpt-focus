@@ -1,0 +1,16 @@
+[Unit]
+Description=tpt-focus — unified notification & focus center
+Documentation=https://github.com/tpt-solutions/tpt-focus/blob/master/docs/user-guide.md
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+ExecStart=%h/.local/bin/tpt-focus-tray
+Restart=on-failure
+RestartSec=3
+
+# Wayland/X11 session access
+Environment=RUST_LOG=info
+
+[Install]
+WantedBy=graphical-session.target

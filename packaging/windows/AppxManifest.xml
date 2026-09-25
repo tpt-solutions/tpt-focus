@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Sparse package manifest for tpt-focus.
+
+  Deployed with:
+    Add-AppxPackage -Path tpt-focus.appx -ExternalLocation <install dir>
+
+  The Publisher value MUST match the subject of the signing certificate
+  (dev flow: CN=TPT Solutions from scripts/windows/new-dev-cert.ps1).
+-->
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  IgnorableNamespaces="uap rescap">
+
+  <Identity
+    Name="TPT.Focus"
+    Publisher="CN=TPT Solutions"
+    Version="0.1.0.0"
+    ProcessorArchitecture="neutral" />
+
+  <Properties>
+    <DisplayName>tpt-focus</DisplayName>
+    <Description>Unified Notification &amp; Focus Center</Description>
+    <PublisherDisplayName>TPT Solutions</PublisherDisplayName>
+    <Logo>Assets\logo.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily
+      Name="Windows.Desktop"
+      MinVersion="10.0.17763.0"
+      MaxVersionTested="10.0.22621.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+
+  <Applications>
+    <Application
+      Id="TptFocus"
+      Executable="tpt-focus-tray.exe"
+      EntryPoint="Windows.FullTrustApplication">
+      <uap:VisualElements
+        DisplayName="tpt-focus"
+        Description="Unified Notification and Focus Center"
+        Square150x150Logo="Assets\logo-150.png"
+        Square44x44Logo="Assets\logo-44.png"
+        BackgroundColor="transparent" />
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <rescap:Capability Name="runFullTrust" />
+    <!-- Required by UserNotificationListener (consent request and change
+         events). Without it NotificationChanged fails with 0x80070490
+         "Element not found" even when access is granted. -->
+    <rescap:Capability Name="userNotificationListener" />
+  </Capabilities>
+</Package>
